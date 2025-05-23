@@ -1,0 +1,52 @@
+--ALTER TABLE
+--Aula 28
+
+--Alteração das características dos campos de uma tabela
+--Utilizado para Adicionar, Deletar ou modificar colunas de uma tabela existente
+--------------------------------------------------------------------------------
+use  
+
+SQL_Curso_1
+go
+
+select *
+
+into tTEMP 
+from Alunos
+
+select  * from tTEMP
+
+alter table tTEMP
+add CPF numeric(11)
+
+exec sp_columns tTEMP
+
+update tTEMP
+set CPF = 12345678910
+where id_aluno = 2
+
+alter  table tTEMP
+add Email varchar(100)
+
+select * from tTEMP
+update tTEMP
+set Email =  'ateus23@live.com'
+
+alter  table tTemp
+drop  column CPF
+
+alter  table tTEMP
+drop  column Email
+
+alter table tTEMP
+add CPF  varchar(100)
+
+select * from tTEMP
+exec sp_columns tTEMP
+
+alter table tTEMP
+alter  column CPF numeric(11)
+
+exec sp_columns tTEMP
+
+drop table tTEMP
